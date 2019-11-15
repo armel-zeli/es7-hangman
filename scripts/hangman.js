@@ -1,4 +1,13 @@
+/**
+ * Class Hangman
+ */
 class Hangman {
+    /**
+     * Class constructor
+     *
+     * @param word The mystery word
+     * @param remainingGuesses number of remaining guesses
+     */
     constructor(word, remainingGuesses) {
         this.word = word.toLowerCase().split('')
         this.guessedLetters = []
@@ -6,6 +15,11 @@ class Hangman {
         this.status = 'playing'
     }
 
+    /**
+     * Return the puzzle to the client
+     *
+     * @returns {string}
+     */
     get puzzle() {
         let puzzle = ''
 
@@ -20,6 +34,11 @@ class Hangman {
         return puzzle
     }
 
+    /**
+     * Function called when the user click on the keyboard
+     *
+     * @param letter
+     */
     makeGuesses(letter) {
         letter = letter.toLowerCase()
 
@@ -37,6 +56,9 @@ class Hangman {
         this.setStatus()
     }
 
+    /**
+     * Set current status
+     */
     setStatus() {
         const finished = this.word.every((letter) => this.guessedLetters.includes(letter) || letter === ' ')
 
@@ -47,6 +69,11 @@ class Hangman {
         }
     }
 
+    /**
+     * Return the status message
+     *
+     * @returns {string}
+     */
     get statusMessage(){
         if (this.status === 'playing') {
             return `Remaining guesses : ${this.remainingGuesses}`
