@@ -49,11 +49,11 @@ class Hangman {
 
     get statusMessage(){
         if (this.status === 'playing') {
-            return `Essai restant : ${this.remainingGuesses}`
+            return `Remaining guesses : ${this.remainingGuesses}`
         } else if (this.status === 'failed') {
-            return `Dommage ! Le mot était  ${this.word.join('')}`
+            return `Damn ! The word was  ${this.word.join('')}`
         } else if (this.status === 'finished') {
-            return 'Bien joué ! Tu as trouvé le mot'
+            return 'Good game ! You found the word'
         }
     }
 }
